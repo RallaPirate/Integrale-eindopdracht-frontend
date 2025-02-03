@@ -1,4 +1,5 @@
 import './App.css'
+import {Routes, Route} from 'react-router-dom'
 import Login from './pages/login/Login.jsx'
 import Home from './pages/home/Home.jsx'
 import CaseFile from './pages/caseFile/CaseFile.jsx'
@@ -12,12 +13,14 @@ function App() {
 
   return (
     <>
-      <Login />
-      <Home />
-      <CaseFile />
-      <Profile />
-      <NotFound />
-      <SignUp />
+        <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/dossier" element={<CaseFile />} />
+            <Route path="/profiel" element={<Profile />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/wordlid" element={<SignUp />} />
+        </Routes>
     </>
   )
 }
