@@ -1,0 +1,4 @@
+.caseFile {
+    display: flex;
+    flex-direction: row;
+}
