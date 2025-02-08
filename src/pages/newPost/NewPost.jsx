@@ -1,15 +1,73 @@
+import { useForm } from "react-hook-form";
 import './NewPost.css'
 import Header from '../../components/header/Header.jsx'
 import ButtonSubmit from "../../components/buttonSubmit/ButtonSubmit.jsx";
+import {Question} from "@phosphor-icons/react";
+import ButtonHeader from "../../components/buttonHeader/ButtonHeader.jsx";
+import axios from "axios";
 
 function NewPost() {
+    const {register, handleSubmit, formState: {errors}} = useForm();
+
+    async function handleFormSubmit(data) {
+        console.log(data);
+    }
     return (
         <>
             <Header />
-        <h2>Dit is de 'Nieuwe Post'-pagina</h2>
-            <ButtonSubmit
-            text={"post aanmaken"}
-            size={"large"}/>
+            <div className="flexboxcontainer">
+                <form
+                    className="newPostBox"
+                    onSubmit={handleSubmit(handleFormSubmit)}>
+                    <h2>Nieuwe Post</h2>
+                    <div id="newPostField">
+                        <label htmlFor="title">Titel</label>
+                        <input
+                            className="inputfield"
+                            type="text"
+                            placeholder="Voer een titel in"
+                            {...register("title", {
+                                required: {
+                                    value: true,
+                                    message: "Dit veld is verplicht",
+                                },
+                            })}/>
+                        {errors.title && <p>{errors.title.message}</p>}
+                    </div>
+                    <div id="newPostField">
+                        <div>
+                        <label htmlFor="tags">Trefwoorden</label>
+                        <ButtonHeader
+                            icon=<Question size={15}/>
+                        clickfunction= {()=> console.log('explainer on tags')}
+                        />
+                        </div>
+                            <input
+                            className="inputfield"
+                            type="text"
+                            placeholder="Voer hier uw trefwoorden in"
+                            {...register("tags")}/>
+                    </div>
+                    <div id="newPostField">
+                        <label htmlFor="postTextBody">Tekst</label>
+                        <textarea
+                            rows="7"
+                            cols="50"
+                            placeholder="Voer hier uw tekst in"
+                        {...register("posttext", {
+                            required: {
+                                value: true,
+                                message: "Dit veld is verplicht",
+                            },
+                            })}/>
+                        {errors.posttext && <p>{errors.posttext.message}</p>}
+                    </div>
+                    <ButtonSubmit
+                        text={"post aanmaken"}
+                        id={"createPost"}
+                        size={"large"}/>
+                </form>
+            </div>
         </>
     )
 }

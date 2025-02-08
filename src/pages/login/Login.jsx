@@ -1,13 +1,22 @@
 import './Login.css'
 import HeaderLogin from "../../components/headerLogin/HeaderLogin.jsx";
-import {Link} from "react-router-dom";
+import ButtonSubmit from "../../components/buttonSubmit/ButtonSubmit.jsx";
+import { useForm } from "react-hook-form";
 
 function Login() {
     return (
         <>
             <HeaderLogin/>
-        <h2>Dit is de Loginpagina</h2>
-            <Link to="/profiel/testUser"> Link werkt alleen als je bent ingelogd</Link>
+            <div className="loginpage">
+            <p>Het SP Platform is de webapp waar je actief je stem kunt laten horen binnen de SP. <br/> Je kunt op deze website inloggen met je SP-account. Heb je daar hulp bij nodig? Stuur een mail naar webteam@sp.nl</p>
+            <form>
+                <ButtonSubmit
+                text="inloggen"
+                size="large"
+                id="loginSubmit"
+                />
+            </form>
+            </div>
         </>
     )
 }

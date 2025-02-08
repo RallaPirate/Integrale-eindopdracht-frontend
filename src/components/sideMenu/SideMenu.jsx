@@ -1,7 +1,10 @@
+import { useForm } from 'react-hook-form';
 import './SideMenu.css'
 import ButtonSubmit from "../buttonSubmit/ButtonSubmit.jsx";
+import CheckboxSideMenu from "../checkboxSideMenu/CheckboxSideMenu.jsx";
 
 function SideMenu() {
+    const { register} = useForm();
     return (
         <div className="sideMenu">
             <label htmlFor="sort">Sorteren</label>
@@ -14,61 +17,74 @@ function SideMenu() {
             <form>
                 <input
                     type="Checkbox"
-                    id="NLCheckbox"
-                    name="NLCheckbox"
-                    value="NL">
+                    id="NL"
+                    {...register("NLCheckbox")}>
                 </input>
                 <label htmlFor="NL">Landelijk</label>
 
                 <input
                     type="Checkbox"
-                    id="GRCheckbox"
-                    name="GRCheckbox"
-                    value="GR">
+                    id="GR"
+                    name="GRCheckbox">
                 </input>
                 <label htmlFor="GR">Groningen</label>
 
                 <input
                     type="Checkbox"
-                    id="FRCheckbox"
-                    name="FRCheckbox"
-                    value="FR">
+                    id="FR"
+                    name="FRCheckbox">
                 </input>
                 <label htmlFor="FR">Friesland</label>
 
                 <input
                     type="Checkbox"
-                    id="DRCheckbox"
-                    name="DRCheckbox"
-                    value="DR">
+                    id="DR"
+                    name="DRCheckbox">
                 </input>
                 <label htmlFor="DR">Drenthe</label>
 
                 <input
                     type="Checkbox"
-                    id="OVCheckbox"
-                    name="OVCheckbox"
-                    value="OV">
+                    id="OV"
+                    name="OVCheckbox">
                 </input>
                 <label htmlFor="OV">Overijssel</label>
 
                 <input
                     type="Checkbox"
                     id="FLCheckbox"
-                    name="FLCheckbox"
-                    value="FL">
+                    name="FLCheckbox">
                 </input>
                 <label htmlFor="FL">Flevoland</label>
 
                 <input
                     type="Checkbox"
-                    id="GDCheckbox"
-                    name="GDCheckbox"
-                    value="GD">
+                    id="GD"
+                    name="GDCheckbox">
                 </input>
                 <label htmlFor="GD">Gelderland</label>
+                <br/>
+                <br/>
+                <p> ------test met components------- </p>
 
-
+                <CheckboxSideMenu
+                    checkboxid="UT"
+                    text="Utrecht" />
+                <CheckboxSideMenu
+                    checkboxid="NH"
+                    text="Noord-Holland" />
+                <CheckboxSideMenu
+                    checkboxid="ZH"
+                    text="Zuid-Holland" />
+                <CheckboxSideMenu
+                    checkboxid="ZL"
+                    text="Zeeland" />
+                <CheckboxSideMenu
+                    checkboxid="NB"
+                    text="Brabant" />
+                <CheckboxSideMenu
+                    checkboxid="LB"
+                    text="Limburg" />
             </form>
             <ButtonSubmit
                 size='small'

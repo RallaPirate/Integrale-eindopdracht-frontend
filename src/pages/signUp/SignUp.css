@@ -1,0 +1,10 @@
+.signUp {
+    margin: 100px auto;
+    height: 50vh;
+    width: 750px;
+    background-color: var(--color-background-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: Flex-start;
+    align-items: center;
+}

@@ -1,0 +1,34 @@
+.flexboxcontainer {
+    height: calc(100vh - 128px);
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.newPostBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background-secondary);
+    border: 1px solid var(--color-secondary);
+    height: 50vh;
+    width: 750px;
+}
+
+.inputfield {
+    width: 380px;
+}
+
+#newPostField {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0 0 0;
+}
+
+#createPost {
+    margin: auto 10px 10px auto;
+}

@@ -14,6 +14,7 @@
     --color-secondary: #40e0d0ff;
     --color-copy: #141414ff;
     --color-background: #F0F0F0;
+    --color-background-secondary: white;
     --font-main: "Bebas Neue", serif;
 }
 
@@ -24,7 +25,7 @@ body {
 header {
     width: 100vw;
     height: 128px;
-    background-color: white;
+    background-color: var(--color-background-secondary);
 }
 
 .uppercase {
@@ -40,6 +41,6 @@ header {
 }
 
 .large {
-    font-size: 50px;
+    font-size: 36px;
 }
 
