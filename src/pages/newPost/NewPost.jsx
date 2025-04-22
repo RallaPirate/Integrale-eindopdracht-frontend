@@ -1,9 +1,81 @@
+import { useForm } from "react-hook-form";
 import './NewPost.css'
+import Header from '../../components/header/Header.jsx'
+import ButtonSubmit from "../../components/buttonSubmit/ButtonSubmit.jsx";
+import {Question} from "@phosphor-icons/react";
+import ButtonHeader from "../../components/buttonHeader/ButtonHeader.jsx";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 function NewPost() {
+    const {register, handleSubmit, formState: {errors}} = useForm();
+    const navigate = useNavigate();
+
+    async function handleFormSubmit(data) {
+        axios.post('http://localhost:8080/posts', data)
+        console.log(data)
+        navigate('/home')
+    }
     return (
         <>
-        <h2>Dit is de 'Nieuwe Post'-pagina</h2>
+            <Header />
+            <div className="flexboxcontainer">
+                <form
+                    className="newPostBox"
+                    onSubmit={handleSubmit(handleFormSubmit)}>
+                    <h2>Nieuwe Post</h2>
+                    <div id="newPostField">
+                        <label htmlFor="title">Titel</label>
+                        <input
+                            className="inputfield"
+                            type="text"
+                            placeholder="Voer een titel in"
+                            {...register("title", {
+                                required: {
+                                    value: true,
+                                    message: "Dit veld is verplicht",
+                                },
+                            })}/>
+                        {errors.title && <p className='errormessage'>{errors.title.message}</p>}
+                    </div>
+                    <div id="newPostField">
+                        <div>
+                        <label htmlFor="tags">Trefwoorden</label>
+                        <ButtonHeader
+                            icon=<Question size={15}/>
+                        clickfunction= {()=> console.log('explainer on tags')}
+                        />
+                        </div>
+                            <input
+                            className="inputfield"
+                            type="text"
+                            placeholder="Voer hier uw trefwoorden in"
+                            {...register("tags")}/>
+                    </div>
+                    <div id="newPostField">
+                        <label htmlFor="postTextBody">Tekst</label>
+                        <textarea
+                            rows="7"
+                            cols="50"
+                            placeholder="Voer hier uw tekst in"
+                            {...register("posttext", {
+                                required: {
+                                    value: true,
+                                    message: "Dit veld is verplicht",
+                                },
+                            })}/>
+                        {errors.posttext && <p className="errormessage">{errors.posttext.message}</p>}
+                        <input type="hidden" value="1"
+                               {...register("userId")}/>
+                    </div>
+                    <ButtonSubmit
+                        text={"post aanmaken"}
+                        id={"createPost"}
+                        size={"large"}
+                    />
+                </form>
+            </div>
         </>
     )
 }

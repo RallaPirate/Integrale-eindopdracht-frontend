@@ -1,0 +1,9 @@
+.buttonheader {
+    border: none;
+    background: none;
+    margin: 5px;
+}
+
+.buttonheader:hover {
+    cursor: pointer;
+}

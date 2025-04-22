@@ -1,0 +1,8 @@
+.buttonProfile {
+    margin: 0 5px 0 0;
+}
+
+.buttonProfile:hover {
+    margin: 0 5px 0 0;
+    transform: scale(1.04);
+}

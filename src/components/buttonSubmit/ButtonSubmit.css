@@ -1,0 +1,18 @@
+.buttonSubmit {
+    border: none;
+    color: transparent;
+    font-family: var(--font-main);
+    background: linear-gradient(80deg, rgba(233,22,29,1) 47%, rgba(20,20,20,1) 52%);
+    background-clip: text;
+    background-position: 100%;
+    background-size: 250% 100%;
+}
+
+.buttonSubmit:hover {
+    color: transparent;
+    background: linear-gradient(80deg, rgba(233,22,29,1) 47%, rgba(20,20,20,1) 52%);
+    background-clip: text;
+    background-size: 250% 100%;
+    background-position: 0%;
+    transition: background .5s;
+}

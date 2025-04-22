@@ -1,0 +1,18 @@
+.sideMenu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: calc(100vh - 128px);
+    width: 250px;
+    padding: 0 0 0 25px;
+    margin: 128px 25px 0 0;
+    background-color: var(--color-background-secondary);
+}
+
+#sideMenuButtonSubmit {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 10px;
+}

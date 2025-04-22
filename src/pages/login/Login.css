@@ -1,0 +1,14 @@
+.loginpage {
+    margin: 100px auto;
+    height: 50vh;
+    width: 750px;
+    background-color: var(--color-background-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#loginSubmit {
+    margin: auto 10px 0 0;
+    align-self: flex-end;
+}

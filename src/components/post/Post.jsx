@@ -1,10 +1,12 @@
 import './Post.css'
 
-function Post(){
+function Post({postcontent}){
     return(
-        <>
-        <h3>Dit is een Post</h3>
-        </>
+        <div className="post">
+            <h3>{postcontent.title}</h3>
+            <p>{postcontent.posttext}</p>
+            <button onClick={() => console.log(postcontent)}>Klikmij</button>
+        </div>
     )
 }
 

@@ -1,8 +1,13 @@
 import './ButtonSubmit.css'
 
-function ButtonSubmit() {
+function ButtonSubmit({text, size, id, clickfunction}) {
     return (
-        <button>ButtonSubmit</button>
+        <button
+            className={`buttonSubmit uppercase ${size}`}
+            id={id}
+            onClick={clickfunction}
+        >{text}
+        </button>
     )
 }
 
