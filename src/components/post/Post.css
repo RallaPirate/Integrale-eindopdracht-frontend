@@ -1,0 +1,7 @@
+.post{
+    background-color: var(--color-background-secondary);
+    border: 1px solid black;
+    margin: 15px;
+    padding: 10px;
+    width: 500px;
+}

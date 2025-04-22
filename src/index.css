@@ -44,3 +44,7 @@ header {
     font-size: 36px;
 }
 
+.errormessage {
+    color: var(--color-primary);
+    font-style: italic;
+}

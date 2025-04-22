@@ -2,9 +2,12 @@ import { useForm } from 'react-hook-form';
 import './SideMenu.css'
 import ButtonSubmit from "../buttonSubmit/ButtonSubmit.jsx";
 import CheckboxSideMenu from "../checkboxSideMenu/CheckboxSideMenu.jsx";
+import {useNavigate} from "react-router-dom";
 
 function SideMenu() {
     const { register} = useForm();
+    const navigate = useNavigate();
+
     return (
         <div className="sideMenu">
             <label htmlFor="sort">Sorteren</label>
@@ -90,6 +93,7 @@ function SideMenu() {
                 size='small'
                 text='Uitloggen →'
                 id='sideMenuButtonSubmit'
+                clickfunction={()=> navigate('/')}
             />
         </div>
     )

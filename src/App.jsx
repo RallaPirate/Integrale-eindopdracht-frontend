@@ -9,19 +9,19 @@ import SignUp from './pages/signUp/SignUp.jsx'
 import NewPost from './pages/newPost/NewPost.jsx'
 
 function App() {
-    const isLoggedIn = true;
     const navigate = useNavigate();
+    const login = true;
 
   return (
     <>
         <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/home" element={isLoggedIn === true ? <Home /> : navigate('/') } />
-            <Route path="/dossier/:caseFileNumber" element={isLoggedIn === true ? <CaseFile /> :navigate('/')} />
-            <Route path="/profiel/:user" element={isLoggedIn === true ? <Profile /> : navigate('/') } />
-            <Route path="*" element={isLoggedIn === true ? <NotFound /> : navigate('/')} />
-            <Route path="/wordlid" element={isLoggedIn === true ? <SignUp /> : navigate('/') } />\
-            <Route path="/nieuwepost" element={isLoggedIn === true ? <NewPost /> : navigate('/') } />
+            <Route path="/home" element={login === true ? <Home /> : navigate('/') } />
+            <Route path="/dossier/:caseFileNumber" element={login === true ? <CaseFile /> :navigate('/')} />
+            <Route path="/profiel/:user" element={login === true ? <Profile /> : navigate('/') } />
+            <Route path="*" element={login === true ? <NotFound /> : navigate('/')} />
+            <Route path="/wordlid" element={login === true ? <SignUp /> : navigate('/') } />\
+            <Route path="/nieuwepost" element={login === true ? <NewPost /> : navigate('/') } />
         </Routes>
     </>
   )

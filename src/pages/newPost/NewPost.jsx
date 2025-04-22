@@ -5,12 +5,17 @@ import ButtonSubmit from "../../components/buttonSubmit/ButtonSubmit.jsx";
 import {Question} from "@phosphor-icons/react";
 import ButtonHeader from "../../components/buttonHeader/ButtonHeader.jsx";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 function NewPost() {
     const {register, handleSubmit, formState: {errors}} = useForm();
+    const navigate = useNavigate();
 
     async function handleFormSubmit(data) {
-        console.log(data);
+        axios.post('http://localhost:8080/posts', data)
+        console.log(data)
+        navigate('/home')
     }
     return (
         <>
@@ -32,7 +37,7 @@ function NewPost() {
                                     message: "Dit veld is verplicht",
                                 },
                             })}/>
-                        {errors.title && <p>{errors.title.message}</p>}
+                        {errors.title && <p className='errormessage'>{errors.title.message}</p>}
                     </div>
                     <div id="newPostField">
                         <div>
@@ -54,18 +59,21 @@ function NewPost() {
                             rows="7"
                             cols="50"
                             placeholder="Voer hier uw tekst in"
-                        {...register("posttext", {
-                            required: {
-                                value: true,
-                                message: "Dit veld is verplicht",
-                            },
+                            {...register("posttext", {
+                                required: {
+                                    value: true,
+                                    message: "Dit veld is verplicht",
+                                },
                             })}/>
-                        {errors.posttext && <p>{errors.posttext.message}</p>}
+                        {errors.posttext && <p className="errormessage">{errors.posttext.message}</p>}
+                        <input type="hidden" value="1"
+                               {...register("userId")}/>
                     </div>
                     <ButtonSubmit
                         text={"post aanmaken"}
                         id={"createPost"}
-                        size={"large"}/>
+                        size={"large"}
+                    />
                 </form>
             </div>
         </>
