@@ -3,14 +3,34 @@ import HeaderLogin from "../../components/headerLogin/HeaderLogin.jsx";
 import ButtonSubmit from "../../components/buttonSubmit/ButtonSubmit.jsx";
 import { useForm } from "react-hook-form";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+import axios from "axios";
 
 function Login() {
+    const [loginError, setLoginError] = useState(null);
     const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
 
 
     async function handleFormSubmit(data) {
+        const {email, password} = data;
         console.log(data);
+
+        try {
+            const response = await axios.get('http://localhost:8080/posts/test', {
+                auth: {
+                    username: email,
+                    password: password,
+                }});
+            if (response.status === 200) {
+                console.log("Gelukt!!!");
+                navigate('/home');
+            }
+        }
+        catch (error) {
+            console.error("Login mislukt", error);
+            setLoginError("Inloggen mislukt.")
+        }
     }
 
     return (
@@ -24,7 +44,7 @@ function Login() {
                 <input
                     type="email"
                     placeholder="voer uw emailadres in"
-                    {...register("name", {
+                    {...register("email", {
                         required: true,
                         message: "Emailadres is verplicht"
                     } )} />
@@ -39,8 +59,8 @@ function Login() {
                 text="inloggen"
                 size="large"
                 id="loginSubmit"
-                clickfunction={()=> navigate('/home')}
                 />
+                {loginError && <p>{loginError}</p>}
             </form>
             </div>
         </>

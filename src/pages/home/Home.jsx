@@ -10,7 +10,7 @@ function Home() {
     const [posts, setPosts] = useState([])
     async function goFetch() {
         try {
-            const response = await axios.get('http://localhost:8080/posts');
+            const response = await axios.get('http://localhost:8080/api/posts');
         setPosts(response.data);
         }
         catch (error) {

@@ -8,7 +8,14 @@
     justify-content: center;
 }
 
+.loginform {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+}
+
 #loginSubmit {
-    margin: auto 10px 0 0;
-    align-self: flex-end;
+    margin: 10px 0 0 auto;
+    /*align-self: flex-end;*/
+    /*margin-left: auto;*/
 }
