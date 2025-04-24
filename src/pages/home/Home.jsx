@@ -12,6 +12,7 @@ function Home() {
         try {
             const response = await axios.get('http://localhost:8080/api/posts');
         setPosts(response.data);
+        console.log(axios.defaults.headers);
         }
         catch (error) {
             console.log(error);

@@ -3,10 +3,17 @@ import './SideMenu.css'
 import ButtonSubmit from "../buttonSubmit/ButtonSubmit.jsx";
 import CheckboxSideMenu from "../checkboxSideMenu/CheckboxSideMenu.jsx";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 function SideMenu() {
     const { register} = useForm();
     const navigate = useNavigate();
+
+    function handleLogout(){
+        localStorage.removeItem("token");
+        delete axios.defaults.headers.common['Authorization'];
+        navigate('/')
+    }
 
     return (
         <div className="sideMenu">
@@ -93,7 +100,7 @@ function SideMenu() {
                 size='small'
                 text='Uitloggen →'
                 id='sideMenuButtonSubmit'
-                clickfunction={()=> navigate('/')}
+                clickfunction={()=> handleLogout()}
             />
         </div>
     )

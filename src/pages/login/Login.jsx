@@ -11,27 +11,42 @@ function Login() {
     const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
 
-
     async function handleFormSubmit(data) {
-        const {email, password} = data;
-        console.log(data);
-
         try {
-            const response = await axios.get('http://localhost:8080/posts/test', {
-                auth: {
-                    username: email,
-                    password: password,
-                }});
-            if (response.status === 200) {
-                console.log("Gelukt!!!");
-                navigate('/home');
-            }
+            const response = await axios.post('http://localhost:8080/api/auth/login', data)
+            const token = response.data;
+
+            localStorage.setItem('token', token);
+                axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+            console.log("Succes! Opgeslagen token is:", token)
+            navigate('/home');
         }
         catch (error) {
-            console.error("Login mislukt", error);
-            setLoginError("Inloggen mislukt.")
+            console.log("Login mislukt", error);
         }
     }
+// TODO: uitgecommente functie verwijderen als de JWT goed werkt!
+    // async function handleFormSubmit(data) {
+    //     const {email, password} = data;
+    //     console.log(data);
+    //
+    //     try {
+    //         const response = await axios.get('http://localhost:8080/posts/test', {
+    //             auth: {
+    //                 username: email,
+    //                 password: password,
+    //             }});
+    //         if (response.status === 200) {
+    //             console.log("Gelukt!!!");
+    //             navigate('/home');
+    //         }
+    //     }
+    //     catch (error) {
+    //         console.error("Login mislukt", error);
+    //         setLoginError("Inloggen mislukt.")
+    //     }
+    // }
 
     return (
         <>
