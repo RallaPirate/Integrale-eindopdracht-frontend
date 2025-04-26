@@ -6,16 +6,35 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .loginform {
-    margin: 100px auto;
+    height: 500px;
+    width: 750px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.formIntro{
+    margin: 7px;
+}
+
+.formFields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    margin: 5px;
+    width: 500px;
 }
 
 #loginSubmit {
-    margin: 10px 0 0 auto;
+    margin: 10px 50px 0 auto;
     /*align-self: flex-end;*/
     /*margin-left: auto;*/
 }
