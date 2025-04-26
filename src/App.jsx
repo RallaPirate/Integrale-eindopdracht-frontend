@@ -28,7 +28,7 @@ function App() {
             <Route path="/dossier/:caseFileNumber" element={<ProtectedRoute> <CaseFile /> </ProtectedRoute>} />
             <Route path="/profiel/:user" element={<ProtectedRoute> ? <Profile /> </ProtectedRoute>} />
             <Route path="*" element={<ProtectedRoute> <NotFound /></ProtectedRoute>} />
-            <Route path="/wordlid" element={<ProtectedRoute> <SignUp /></ProtectedRoute>} />\
+            <Route path="/wordlid" element={<SignUp />} />\
             <Route path="/nieuwepost" element={<ProtectedRoute> <NewPost /> </ProtectedRoute> } />
         </Routes>
 
