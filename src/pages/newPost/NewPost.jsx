@@ -13,7 +13,7 @@ function NewPost() {
     const navigate = useNavigate();
 
     async function handleFormSubmit(data) {
-        axios.post('http://localhost:8080/posts', data)
+        axios.post('http://localhost:8080/api/posts', data)
         console.log(data)
         navigate('/home')
     }

@@ -5,5 +5,21 @@
 }
 
 .wordLid{
-background-color: turquoise;
+    background-color: turquoise;
+    width: 130px;
+    height: 50px;
+    rotate: -3deg;
+    margin: 30px;
+    font-family: var(--font-main);
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-copy);
+
+}
+
+.plusIcon{
+    margin-left: 7px;
 }
