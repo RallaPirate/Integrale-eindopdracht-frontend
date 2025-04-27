@@ -34,8 +34,8 @@ function Login() {
     return (
         <>
             <HeaderLogin/>
+            {registered && <p className="successMessage">Registratie gelukt! U kunt nu inloggen.</p>}
             <div className="loginpage">
-                {registered && <p className="success-message">Registratie gelukt! U kunt nu inloggen.</p>}
                 <form
                     className="loginform"
                     onSubmit={handleSubmit(handleFormSubmit)}>

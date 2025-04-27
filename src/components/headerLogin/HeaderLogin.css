@@ -20,6 +20,12 @@
 
 }
 
+.wordLid:hover{
+    width: 137px;
+    height: 53px;
+    cursor: pointer;
+}
+
 .plusIcon{
     margin-left: 7px;
 }

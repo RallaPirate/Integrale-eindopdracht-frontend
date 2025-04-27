@@ -15,9 +15,9 @@ function SignUp() {
 
     async function handleFormSubmit(data){
         try {
-        await axios.post("http://localhost:8080/api/register", data)
-        console.log(data)
-        navigate("/", { state: { registered: true } }); }
+            console.log(data)
+            await axios.post("http://localhost:8080/api/register", data)
+            navigate("/", { state: { registered: true } }); }
         catch(error){
             console.log(error)
             setServerError("Helaas, er is iets misgegaan. Probeer het later nog eens")
