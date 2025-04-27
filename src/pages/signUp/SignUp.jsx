@@ -30,9 +30,11 @@ function SignUp() {
             {serverError && <p className="serverError">{serverError}</p>}
             <div className="signUp">
             <h2>Aanmelden</h2>
-            <p><em>Noot: </em>Beste tester/nakijker, <br/> Deze applicatie simuleert een social media-platform voor de SP. In een 'echte' SP app zou deze pagina verwijzen naar het officiële SP-aanmeldformulier, waar nieuwe leden eerst geverifieerd worden (no trolls allowed!). Voor testdoeleinden is hier echter een eigen aanmeldformulier opgenomen, zodat registratie mogelijk is zonder lid te worden.</p>
+                <div className="infoSignUp">
+            <p><em>Noot: </em>Beste tester/nakijker, <br/> Deze applicatie simuleert een social media-platform voor de SP. In een 'echte' SP app zou deze pagina verwijzen naar het officiële SP-aanmeldformulier, waar nieuwe leden eerst geverifieerd worden (no trolls allowed!). Voor testdoeleinden is hier echter een eigen aanmeldformulier opgenomen, zodat registratie mogelijk is zonder een SP-lidmaatschap.</p>
                 <img src={noTrollsAllowed} alt="Plaatje van een trol met een laptop op schoot met een streep erdoor" className="noTrolls" />
-            <form
+                </div>
+                    <form
             className="signUpForm"
             onSubmit={handleSubmit(handleFormSubmit)}>
                 <input
@@ -68,13 +70,13 @@ function SignUp() {
                     {...register("passwordrepeat", {
                         required: {
                             value: true,
-                            message: "Vul uw wachtwoord opnieuw in alstublieft",
+                            message: "Herhaal uw wachtwoord alstublieft",
                         },
                     validate: value => value === password || "Wachtwoorden komen niet overeen"})}/>
                 {errors.passwordrepeat && <p className='errormessage'>{errors.passwordrepeat.message}</p>}
                 <ButtonSubmit
                     text={"Registreer"}
-                    id={"registrer"}
+                    id={"register"}
                     size={"large"}/>
             </form>
             </div>
