@@ -10,6 +10,9 @@ function Login() {
     const [loginError, setLoginError] = useState(null);
     const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
+    const location = useLocation();
+    const registered = location.state?.registered;
+
 
     async function handleFormSubmit(data) {
         try {
@@ -27,10 +30,12 @@ function Login() {
         }
     }
 
+
     return (
         <>
             <HeaderLogin/>
             <div className="loginpage">
+                {registered && <p className="success-message">Registratie gelukt! U kunt nu inloggen.</p>}
                 <form
                     className="loginform"
                     onSubmit={handleSubmit(handleFormSubmit)}>

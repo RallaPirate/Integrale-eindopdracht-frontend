@@ -1,9 +1,9 @@
 import './ButtonProfile.css'
 import {Link} from "react-router-dom";
 
-function ButtonProfile({icon}) {
+function ButtonProfile({icon, route}) {
     return (
-        <Link to="/profiel/testUser"
+        <Link to={route}
         className="buttonProfile">
             {icon}
         </Link>
