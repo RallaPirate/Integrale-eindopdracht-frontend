@@ -40,7 +40,7 @@
     align-items: center;
 }
 
-input {
+.loginField {
     margin: 5px;
     width: 500px;
 }

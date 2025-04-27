@@ -11,6 +11,10 @@
     background-color: var(--color-background-secondary);
 }
 
+input[type="Checkbox"]{
+    display: block;
+}
+
 #sideMenuButtonSubmit {
     margin-top: auto;
     margin-left: auto;

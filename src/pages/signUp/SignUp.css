@@ -27,6 +27,11 @@
     align-items: center;
 }
 
+.signUpField {
+    margin: 5px;
+    width: 500px;
+}
+
 #register {
     margin-left: auto;
 }

@@ -46,6 +46,7 @@ function Login() {
                     </div>
                     <div className="formFields">
                     <input
+                        className="loginField"
                         type="email"
                         placeholder="voer uw emailadres in"
                         {...register("email", {
@@ -53,6 +54,7 @@ function Login() {
                             message: "Emailadres is verplicht"
                         })} />
                     <input
+                        className="loginField"
                         type="password"
                         placeholder="voer uw wachtwoord in"
                         {...register("password", {

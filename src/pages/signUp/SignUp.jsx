@@ -38,6 +38,7 @@ function SignUp() {
             className="signUpForm"
             onSubmit={handleSubmit(handleFormSubmit)}>
                 <input
+                    className="signUpField"
                     placeholder="Voer uw naam in"
                     type="text"
                     {...register("name", {
@@ -47,6 +48,7 @@ function SignUp() {
                     }})}/>
                 {errors.name && <p className='errormessage'>{errors.name.message}</p>}
                 <input
+                    className="signUpField"
                     placeholder="Voer uw email in"
                     type="email"
                     {...register("email", {
@@ -56,6 +58,7 @@ function SignUp() {
                         }})}/>
                 {errors.email && <p className='errormessage'>{errors.email.message}</p>}
                 <input
+                    className="signUpField"
                     placeholder="Voer uw wachtwoord in"
                     type="password"
                     {...register("password", {
@@ -65,6 +68,7 @@ function SignUp() {
                         }})}/>
                 {errors.password && <p className='errormessage'>{errors.password.message}</p>}
                 <input
+                    className="signUpField"
                     placeholder="Herhaal uw wachtwoord"
                     type="password"
                     {...register("passwordrepeat", {
