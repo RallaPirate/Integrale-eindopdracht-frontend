@@ -2,7 +2,7 @@ import './Login.css'
 import HeaderLogin from "../../components/headerLogin/HeaderLogin.jsx";
 import ButtonSubmit from "../../components/buttonSubmit/ButtonSubmit.jsx";
 import { useForm } from "react-hook-form";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import axios from "axios";
 
@@ -10,16 +10,24 @@ function Login() {
     const [loginError, setLoginError] = useState(null);
     const {register, handleSubmit} = useForm();
     const navigate = useNavigate();
+    const location = useLocation();
+    const registered = location.state?.registered;
+
 
     async function handleFormSubmit(data) {
         try {
             const response = await axios.post('http://localhost:8080/api/auth/login', data)
             const token = response.data;
 
+            const decodedToken = jwt_decode(token);
+            const userId = decodedToken.userId;
+
+            localStorage.setItem("userId", userId);
             localStorage.setItem('token', token);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
             console.log("Succes! Opgeslagen token is:", token)
+            console.log("Opgeslagen userId is:", userId);
             navigate('/home');
         }
         catch (error) {
@@ -27,9 +35,11 @@ function Login() {
         }
     }
 
+
     return (
         <>
             <HeaderLogin/>
+            {registered && <p className="successMessage">Registratie gelukt! U kunt nu inloggen.</p>}
             <div className="loginpage">
                 <form
                     className="loginform"
@@ -41,6 +51,7 @@ function Login() {
                     </div>
                     <div className="formFields">
                     <input
+                        className="loginField"
                         type="email"
                         placeholder="voer uw emailadres in"
                         {...register("email", {
@@ -48,6 +59,7 @@ function Login() {
                             message: "Emailadres is verplicht"
                         })} />
                     <input
+                        className="loginField"
                         type="password"
                         placeholder="voer uw wachtwoord in"
                         {...register("password", {

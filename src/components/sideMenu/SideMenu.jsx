@@ -17,6 +17,7 @@ function SideMenu() {
 
     return (
         <div className="sideMenu">
+            <p>CSS LAYOUT TEST 1</p>
             <label htmlFor="sort">Sorteren</label>
             <select id="sort" name="sorting">
                 <option value="Date new-old">Datum: nieuw-oud ↑</option>
@@ -25,6 +26,7 @@ function SideMenu() {
                 <option value="Upvotes ascending">Aantal upvotes: minste eerst ↓</option>
             </select>
             <form>
+                <p>CSS LAYOUT TEST 2</p>
                 <input
                     type="Checkbox"
                     id="NL"
@@ -38,7 +40,7 @@ function SideMenu() {
                     name="GRCheckbox">
                 </input>
                 <label htmlFor="GR">Groningen</label>
-
+                <p>CSS LAYOUT TEST 3</p>
                 <input
                     type="Checkbox"
                     id="FR"
@@ -79,22 +81,23 @@ function SideMenu() {
 
                 <CheckboxSideMenu
                     checkboxid="UT"
-                    text="Utrecht" />
+                    text="Utrecht"/>
+                <p>CSS LAYOUT TEST 4</p>
                 <CheckboxSideMenu
                     checkboxid="NH"
-                    text="Noord-Holland" />
+                    text="Noord-Holland"/>
                 <CheckboxSideMenu
                     checkboxid="ZH"
-                    text="Zuid-Holland" />
+                    text="Zuid-Holland"/>
                 <CheckboxSideMenu
                     checkboxid="ZL"
-                    text="Zeeland" />
+                    text="Zeeland"/>
                 <CheckboxSideMenu
                     checkboxid="NB"
-                    text="Brabant" />
+                    text="Brabant"/>
                 <CheckboxSideMenu
                     checkboxid="LB"
-                    text="Limburg" />
+                    text="Limburg"/>
             </form>
             <ButtonSubmit
                 size='small'
@@ -106,4 +109,5 @@ function SideMenu() {
     )
 }
 
+// handleLogout()
 export default SideMenu;

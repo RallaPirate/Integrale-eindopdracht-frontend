@@ -33,7 +33,7 @@ function Header() {
                 />
                 <ButtonProfile
                     icon=<User size={122} color="var(--color-secondary)"/>
-                />
+                    route="/profiel/testuser"/>
             </header>
         </>
     )
