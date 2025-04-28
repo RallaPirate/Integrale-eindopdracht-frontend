@@ -17,17 +17,16 @@ function Login() {
     async function handleFormSubmit(data) {
         try {
             const response = await axios.post('http://localhost:8080/api/auth/login', data)
-            const token = response.data;
+            const {token, userId, role} = response.data;
 
-            const decodedToken = jwt_decode(token);
-            const userId = decodedToken.userId;
-
-            localStorage.setItem("userId", userId);
             localStorage.setItem('token', token);
+            localStorage.setItem("userId", userId);
+            localStorage.setItem("role", role);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
             console.log("Succes! Opgeslagen token is:", token)
             console.log("Opgeslagen userId is:", userId);
+            console.log("Opgeslagen role is:", role);
             navigate('/home');
         }
         catch (error) {

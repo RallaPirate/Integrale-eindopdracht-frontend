@@ -13,7 +13,12 @@ function NewPost() {
     const navigate = useNavigate();
 
     async function handleFormSubmit(data) {
-        axios.post('http://localhost:8080/api/posts', data)
+        const userId = localStorage.getItem("userId");
+        const postdata = {
+            ...data,
+            userId: userId,
+        };
+        axios.post('http://localhost:8080/api/posts', postdata)
         console.log(data)
         navigate('/home')
     }
