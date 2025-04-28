@@ -19,10 +19,15 @@ function Login() {
             const response = await axios.post('http://localhost:8080/api/auth/login', data)
             const token = response.data;
 
+            const decodedToken = jwt_decode(token);
+            const userId = decodedToken.userId;
+
+            localStorage.setItem("userId", userId);
             localStorage.setItem('token', token);
                 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
             console.log("Succes! Opgeslagen token is:", token)
+            console.log("Opgeslagen userId is:", userId);
             navigate('/home');
         }
         catch (error) {
