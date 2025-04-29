@@ -1,6 +1,7 @@
 import './Post.css'
 import axios from "axios";
 import {useState} from "react";
+import RegionNamesTranslator from "../../helper/RegionNamesTranslator.js";
 
 const userId = localStorage.getItem("userId");
 
@@ -70,13 +71,15 @@ function Post({postcontent}){
     }
     return(
         <div className="post">
-            <p>{postcontent.region}</p>
-            <h3>{postcontent.title}</h3>
+            <p className="postreg">{RegionNamesTranslator[postcontent.region] || postcontent.region}</p>
+            <h3 className="postTitle">{postcontent.title}</h3>
             <p>{postcontent.posttext}</p>
+            <div className ="testUpvoteButton">
             <button onClick={() => handleUpvote()}>Klikmij</button>
             <button onClick={() => handleUpvotePost()}>UpvotePost</button>
             <button onClick={() => handleUpvoteDelete()}>UpvoteDelete</button>
-            <p>{postcontent.upvoteCount} Upvotes</p>
+            </div>
+                <p>{postcontent.upvoteCount} Upvotes</p>
         </div>
     )
 }

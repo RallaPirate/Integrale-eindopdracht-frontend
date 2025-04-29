@@ -13,3 +13,5 @@ const RegionNamesTranslator = {
     NB: "Brabant",
     LB: "Limburg"
 };
+
+export default RegionNamesTranslator;
