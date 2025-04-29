@@ -70,6 +70,7 @@ function Post({postcontent}){
     }
     return(
         <div className="post">
+            <p>{postcontent.region}</p>
             <h3>{postcontent.title}</h3>
             <p>{postcontent.posttext}</p>
             <button onClick={() => handleUpvote()}>Klikmij</button>

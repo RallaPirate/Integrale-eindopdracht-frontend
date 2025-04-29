@@ -1,15 +1,16 @@
 import './CheckboxSideMenu.css'
 import { useForm } from 'react-hook-form'
 
-function CheckboxSideMenu({checkboxid, text}) {
-    const {register} = useForm()
+function CheckboxSideMenu({checkboxid, text, onChange}) {
+    // const {register} = useForm()
     return (
         <div className="checkboxSideMenu">
             <input
-                type="Checkbox"
+                type="checkbox"
                 id={checkboxid}
-                {...register(`${checkboxid}Checkbox`)}>
-            </input>
+                value={checkboxid}
+                onChange={onChange}
+                />
             <label htmlFor={checkboxid}>{text}</label>
         </div>
     )

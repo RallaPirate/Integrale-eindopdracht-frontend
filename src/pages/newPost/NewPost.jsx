@@ -44,12 +44,33 @@ function NewPost() {
                             })}/>
                         {errors.title && <p className='errormessage'>{errors.title.message}</p>}
                     </div>
-                    <label htmlFor="choices">Choose an option:</label>
-                    <select id="choices" name="choices">
-                        <option value="apple">Apple</option>
-                        <option value="banana">Banana</option>
-                        <option value="cherry">Cherry</option>
-                    </select>
+                    <div className="regionDropdown">
+                    <label htmlFor="region" className="regionLabel">Kies een regio:</label>
+                        <select
+                            id="regio"
+                            {... register("region", {
+                                required: {
+                                    value: true,
+                                    message: "Selecteer een regio alstublieft",
+                                }
+                            })}>
+                            <option value="">Selecteer een regio</option>
+                            <option value="NL">Landelijk</option>
+                            <option value="GR">Groningen</option>
+                            <option value="FR">Friesland</option>
+                            <option value="DR">Drenthe</option>
+                            <option value="OV">Overijssel</option>
+                            <option value="FL">Flevoland</option>
+                            <option value="GD">Gelderland</option>
+                            <option value="UT">Utrecht</option>
+                            <option value="NH">NoordHolland</option>
+                            <option value="ZH">ZuidHolland</option>
+                            <option value="ZL">Zeeland</option>
+                            <option value="NB">Brabant</option>
+                            <option value="LB">Limburg</option>
+                        </select>
+                    </div>
+                    {errors.region && <p className='errormessage'>{errors.region.message}</p>}
                     <div id="newPostField">
                         <div>
                             <label htmlFor="tags">Trefwoorden</label>
