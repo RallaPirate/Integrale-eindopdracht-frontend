@@ -44,15 +44,21 @@ function NewPost() {
                             })}/>
                         {errors.title && <p className='errormessage'>{errors.title.message}</p>}
                     </div>
+                    <label htmlFor="choices">Choose an option:</label>
+                    <select id="choices" name="choices">
+                        <option value="apple">Apple</option>
+                        <option value="banana">Banana</option>
+                        <option value="cherry">Cherry</option>
+                    </select>
                     <div id="newPostField">
                         <div>
-                        <label htmlFor="tags">Trefwoorden</label>
-                        <ButtonHeader
-                            icon=<Question size={15}/>
-                        clickfunction= {()=> console.log('explainer on tags')}
-                        />
+                            <label htmlFor="tags">Trefwoorden</label>
+                            <ButtonHeader
+                                icon=<Question size={15}/>
+                            clickfunction= {() => console.log('explainer on tags')}
+                            />
                         </div>
-                            <input
+                        <input
                             className="inputfield"
                             type="text"
                             placeholder="Voer hier uw trefwoorden in"
