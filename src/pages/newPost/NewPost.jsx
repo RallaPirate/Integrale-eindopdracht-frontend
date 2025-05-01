@@ -6,11 +6,13 @@ import {Question} from "@phosphor-icons/react";
 import ButtonHeader from "../../components/buttonHeader/ButtonHeader.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {useState} from "react";
 
 
 function NewPost() {
     const {register, handleSubmit, formState: {errors}} = useForm();
     const navigate = useNavigate();
+    const [searchQueryInput, setSearchQueryInput] = useState("");
 
     async function handleFormSubmit(data) {
         const userId = localStorage.getItem("userId");
@@ -24,7 +26,10 @@ function NewPost() {
     }
     return (
         <>
-            <Header />
+            <Header
+                searchQueryInput={searchQueryInput}
+                                setSearchQueryInput={setSearchQueryInput}/>
+
             <div className="flexboxcontainer">
                 <form
                     className="newPostBox"
