@@ -5,7 +5,7 @@ import CheckboxSideMenu from "../checkboxSideMenu/CheckboxSideMenu.jsx";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
-function SideMenu({selectedRegions, onCheckboxChange}) {
+function SideMenu({selectedRegions, onCheckboxChange, sortOrder, handleDropdownChange}) {
     const { register} = useForm();
     const navigate = useNavigate();
     const allRegions = ['NL', 'GR', 'FR', 'DR', 'OV', 'FL', 'GD', 'UT', 'NH', 'ZH', 'ZL', 'NB', 'LB'];
@@ -19,11 +19,11 @@ function SideMenu({selectedRegions, onCheckboxChange}) {
     return (
         <div className="sideMenu">
             <label htmlFor="sort">Sorteren</label>
-            <select id="sort" name="sorting">
-                <option value="Date new-old">Datum: nieuw-oud ↑</option>
-                <option value="Date old-new">Datum: oud-nieuw ↓</option>
-                <option value="Upvotes descending">Aantal upvotes: meeste eerst ↑</option>
-                <option value="Upvotes ascending">Aantal upvotes: minste eerst ↓</option>
+            <select id="sort" name="sorting" value={sortOrder} onChange={handleDropdownChange}>
+                <option value="newest">Datum: nieuw-oud ↑</option>
+                <option value="oldest">Datum: oud-nieuw ↓</option>
+                <option value="popular">Aantal upvotes: meeste eerst ↑</option>
+                <option value="unpopular">Aantal upvotes: minste eerst ↓</option>
             </select>
             <form>
                 <CheckboxSideMenu
