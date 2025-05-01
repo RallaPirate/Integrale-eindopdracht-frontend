@@ -5,9 +5,10 @@ import CheckboxSideMenu from "../checkboxSideMenu/CheckboxSideMenu.jsx";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
-function SideMenu() {
+function SideMenu({selectedRegions, onCheckboxChange, sortOrder, handleDropdownChange}) {
     const { register} = useForm();
     const navigate = useNavigate();
+    const allRegions = ['NL', 'GR', 'FR', 'DR', 'OV', 'FL', 'GD', 'UT', 'NH', 'ZH', 'ZL', 'NB', 'LB'];
 
     function handleLogout(){
         localStorage.removeItem("token");
@@ -17,87 +18,66 @@ function SideMenu() {
 
     return (
         <div className="sideMenu">
-            <p>CSS LAYOUT TEST 1</p>
             <label htmlFor="sort">Sorteren</label>
-            <select id="sort" name="sorting">
-                <option value="Date new-old">Datum: nieuw-oud ↑</option>
-                <option value="Date old-new">Datum: oud-nieuw ↓</option>
-                <option value="Upvotes descending">Aantal upvotes: meeste eerst ↑</option>
-                <option value="Upvotes ascending">Aantal upvotes: minste eerst ↓</option>
+            <select id="sort" name="sorting" value={sortOrder} onChange={handleDropdownChange}>
+                <option value="newest">Datum: nieuw-oud ↑</option>
+                <option value="oldest">Datum: oud-nieuw ↓</option>
+                <option value="popular">Aantal upvotes: meeste eerst ↑</option>
+                <option value="unpopular">Aantal upvotes: minste eerst ↓</option>
             </select>
             <form>
-                <p>CSS LAYOUT TEST 2</p>
-                <input
-                    type="Checkbox"
-                    id="NL"
-                    {...register("NLCheckbox")}>
-                </input>
-                <label htmlFor="NL">Landelijk</label>
-
-                <input
-                    type="Checkbox"
-                    id="GR"
-                    name="GRCheckbox">
-                </input>
-                <label htmlFor="GR">Groningen</label>
-                <p>CSS LAYOUT TEST 3</p>
-                <input
-                    type="Checkbox"
-                    id="FR"
-                    name="FRCheckbox">
-                </input>
-                <label htmlFor="FR">Friesland</label>
-
-                <input
-                    type="Checkbox"
-                    id="DR"
-                    name="DRCheckbox">
-                </input>
-                <label htmlFor="DR">Drenthe</label>
-
-                <input
-                    type="Checkbox"
-                    id="OV"
-                    name="OVCheckbox">
-                </input>
-                <label htmlFor="OV">Overijssel</label>
-
-                <input
-                    type="Checkbox"
-                    id="FLCheckbox"
-                    name="FLCheckbox">
-                </input>
-                <label htmlFor="FL">Flevoland</label>
-
-                <input
-                    type="Checkbox"
-                    id="GD"
-                    name="GDCheckbox">
-                </input>
-                <label htmlFor="GD">Gelderland</label>
-                <br/>
-                <br/>
-                <p> ------test met components------- </p>
-
+                <CheckboxSideMenu
+                    checkboxid="NL"
+                    text="Landelijk"
+                    onChange={onCheckboxChange}/>
+                <CheckboxSideMenu
+                    checkboxid="GR"
+                    text="Groningen"
+                    onChange={onCheckboxChange}/>
+                <CheckboxSideMenu
+                    checkboxid="FR"
+                    text="Friesland"
+                    onChange={onCheckboxChange}/>
+                <CheckboxSideMenu
+                    checkboxid="DR"
+                    text="Drenthe"
+                    onChange={onCheckboxChange}/>
+                <CheckboxSideMenu
+                    checkboxid="OV"
+                    text="Overijssel"
+                    onChange={onCheckboxChange}/>
+                <CheckboxSideMenu
+                    checkboxid="FL"
+                    text="Flevoland"
+                    onChange={onCheckboxChange}/>
+                <CheckboxSideMenu
+                    checkboxid="GD"
+                    text="Gelderland"
+                    onChange={onCheckboxChange}/>
                 <CheckboxSideMenu
                     checkboxid="UT"
-                    text="Utrecht"/>
-                <p>CSS LAYOUT TEST 4</p>
+                    text="Utrecht"
+                    onChange={onCheckboxChange}/>
                 <CheckboxSideMenu
                     checkboxid="NH"
-                    text="Noord-Holland"/>
+                    text="Noord-Holland"
+                    onChange={onCheckboxChange}/>
                 <CheckboxSideMenu
                     checkboxid="ZH"
-                    text="Zuid-Holland"/>
+                    text="Zuid-Holland"
+                    onChange={onCheckboxChange}/>
                 <CheckboxSideMenu
                     checkboxid="ZL"
-                    text="Zeeland"/>
+                    text="Zeeland"
+                    onChange={onCheckboxChange}/>
                 <CheckboxSideMenu
                     checkboxid="NB"
-                    text="Brabant"/>
+                    text="Brabant"
+                    onChange={onCheckboxChange}/>
                 <CheckboxSideMenu
                     checkboxid="LB"
-                    text="Limburg"/>
+                    text="Limburg"
+                    onChange={onCheckboxChange}/>
             </form>
             <ButtonSubmit
                 size='small'
@@ -109,5 +89,4 @@ function SideMenu() {
     )
 }
 
-// handleLogout()
 export default SideMenu;

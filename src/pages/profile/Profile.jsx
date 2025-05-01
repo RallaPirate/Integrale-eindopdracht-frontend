@@ -1,19 +1,22 @@
 import './Profile.css'
-import { useParams } from 'react-router-dom'
+import {useLocation, useParams} from 'react-router-dom'
 import Header from '../../components/header/Header.jsx'
 import SideMenu from '../../components/sideMenu/SideMenu.jsx'
+import {useState} from "react";
 
 
 function Profile() {
-    const { user } = useParams()
+    const [searchQueryInput, setSearchQueryInput] = useState("");
     return (
         <>
-            <Header/>
+            <Header
+                searchQueryInput={searchQueryInput}
+                setSearchQueryInput={setSearchQueryInput}/>
             <div className="profile">
             <SideMenu/>
                 <div className="profileContent">
                 <h2>Dit is je profielpagina</h2>
-                <h3>jij bent gebruiker: {user}</h3>
+                <h3>jij bent gebruiker</h3>
                 </div>
             </div>
         </>
