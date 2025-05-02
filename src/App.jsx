@@ -26,7 +26,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/home" element={<ProtectedRoute> <Home /></ProtectedRoute>} />
             <Route path="/dossier/:caseFileNumber" element={<ProtectedRoute> <CaseFile /> </ProtectedRoute>} />
-            <Route path="/profiel/:user" element={<ProtectedRoute> ? <Profile /> </ProtectedRoute>} />
+            <Route path="/profiel/" element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
             <Route path="*" element={<ProtectedRoute> <NotFound /></ProtectedRoute>} />
             <Route path="/wordlid" element={<SignUp />} />\
             <Route path="/nieuwepost" element={<ProtectedRoute> <NewPost /> </ProtectedRoute> } />
