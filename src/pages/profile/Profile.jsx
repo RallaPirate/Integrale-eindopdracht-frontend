@@ -1,23 +1,26 @@
 import './Profile.css'
 import {useLocation, useParams, useSearchParams} from 'react-router-dom'
 import Header from '../../components/header/Header.jsx'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from 'axios';
 import qs from "qs";
+import MyPosts from "../../components/myPosts/MyPosts.jsx";
 
 function Profile() {
     const [searchQueryInput, setSearchQueryInput] = useState("");
     const [myPosts, setMyPosts] = useState([])
-    const [searchParams] = useSearchParams();
-    const searchProfileFromUrl = searchParams.get("p");
+    const token = localStorage.getItem("token");
+    const { profileId}  = useParams();
 
+    console.log("token is nog present:" + token)
+    console.log("profileId is geset op basis van de url:" + profileId);
 
     async function goFetch() {
         try {
-            const response = await axios.get(`http://localhost:8080/api/profile`,{
-                params: { profile: searchProfileFromUrl || "" },
-                paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' })
-            });
+            const response = await axios.get(`http://localhost:8080/api/profile/${profileId}/posts`,{
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }});
             setMyPosts(response.data);
             console.log(axios.defaults.headers);
         }
@@ -57,6 +60,10 @@ function Profile() {
     //     }
     // }
 
+    useEffect(() => {
+        goFetch();
+    }, []);
+
     return (
         <>
             <Header
@@ -66,7 +73,10 @@ function Profile() {
                 <div className="profileContent">
                 <h2>Dit is je profielpagina</h2>
                 <h3>jij bent gebruiker</h3>
-                </div>
+                        {myPosts.map(myPosts => (
+                            <MyPosts mypostcontent={myPosts} />
+                        ))}
+                    </div>
             </div>
         </>
     )
