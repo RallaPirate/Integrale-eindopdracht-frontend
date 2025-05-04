@@ -5,6 +5,8 @@ import {useEffect, useState} from "react";
 import axios from 'axios';
 import qs from "qs";
 import MyPosts from "../../components/myPosts/MyPosts.jsx";
+import ProfileUploadForm from "../../components/ProfileUploadForm/ProfileUploadForm.jsx";
+import ProfileUploadGallery from "../../components/ProfileUploadGallery/ProfileUploadGallery.jsx";
 
 function Profile() {
     const [searchQueryInput, setSearchQueryInput] = useState("");
@@ -76,6 +78,8 @@ function Profile() {
                         {myPosts.map(myPosts => (
                             <MyPosts mypostcontent={myPosts} />
                         ))}
+                    <ProfileUploadGallery
+                        profileId={profileId}  />
                     </div>
             </div>
         </>

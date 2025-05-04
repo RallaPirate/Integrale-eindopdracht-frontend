@@ -20,9 +20,12 @@ function NewPost() {
             ...data,
             userId: userId,
         };
-        axios.post('http://localhost:8080/api/posts', postdata)
+        try {const response = await axios.post('http://localhost:8080/api/posts', postdata)
         console.log(data)
-        navigate('/home')
+        navigate('/home')}
+        catch(error){
+            console.log(error)
+        }
     }
     return (
         <>
