@@ -5,7 +5,6 @@ import ButtonHeader from '../buttonHeader/ButtonHeader.jsx'
 import ButtonHome from '../buttonHome/ButtonHome.jsx'
 import ButtonProfile from '../buttonProfile/ButtonProfile.jsx'
 import SearchBar from '../searchBar/SearchBar.jsx'
-import Notifications from '../notifications/Notifications.jsx'
 import {Bell, Plus, MagnifyingGlass, User} from '@phosphor-icons/react'
 
 function Header({searchQueryInput, setSearchQueryInput}) {
@@ -38,10 +37,11 @@ function Header({searchQueryInput, setSearchQueryInput}) {
                     icon=<MagnifyingGlass size={32}/>
                 clickfunction= {() => toggleSearchbar(!searchbar)}
                 />
-                <ButtonHeader
-                    icon=<Bell size={32}/>
-                clickfunction= {() => toggleNotifications(!notifications)}
-                />
+                {/*Notificaties gaan niet meer lukken. Dit zou de button zijn om ze aan of uit te zetten:*/}
+                {/*<ButtonHeader*/}
+                {/*    icon=<Bell size={32}/>*/}
+                {/*clickfunction= {() => toggleNotifications(!notifications)}*/}
+                {/*/>*/}
                 <ButtonProfile
                     icon=<User size={122} color="var(--color-secondary)"/>
                 route={`/profiel/${profileId}`}/>
