@@ -1,13 +1,11 @@
 import './ButtonHeader.css'
 
 function ButtonHeader({icon, clickfunction}) {
-    return (
-        <button
+    return (<button
             className="buttonheader"
             onClick={clickfunction}
         >{icon}
-        </button>
-    )
+        </button>)
 }
 
 export default ButtonHeader;

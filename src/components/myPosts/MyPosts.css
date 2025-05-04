@@ -1,4 +1,4 @@
-.mypost{
+.mypost {
     background-color: var(--color-background-secondary);
     border: 1px solid black;
     margin: 15px;
@@ -8,16 +8,16 @@
     flex-direction: column;
 }
 
-.mypostreg{
+.mypostreg {
     color: var(--color-primary);
     margin-left: auto;
 }
 
-.mypostTitle{
+.mypostTitle {
     font-family: var(--font-main);
 }
 
-.mytestUpvoteButton{
+.mytestUpvoteButton {
     display: flex;
     flex-direction: row;
 }

@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import './SideMenu.css'
 import ButtonSubmit from "../buttonSubmit/ButtonSubmit.jsx";
 import CheckboxSideMenu from "../checkboxSideMenu/CheckboxSideMenu.jsx";
@@ -6,18 +6,17 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 function SideMenu({selectedRegions, onCheckboxChange, sortOrder, handleDropdownChange}) {
-    const { register} = useForm();
+    const {register} = useForm();
     const navigate = useNavigate();
     const allRegions = ['NL', 'GR', 'FR', 'DR', 'OV', 'FL', 'GD', 'UT', 'NH', 'ZH', 'ZL', 'NB', 'LB'];
 
-    function handleLogout(){
+    function handleLogout() {
         localStorage.removeItem("token");
         delete axios.defaults.headers.common['Authorization'];
         navigate('/')
     }
 
-    return (
-        <div className="sideMenu">
+    return (<div className="sideMenu">
             <label htmlFor="sort">Sorteren</label>
             <select id="sort" name="sorting" value={sortOrder} onChange={handleDropdownChange}>
                 <option value="newest">Datum: nieuw-oud ↑</option>
@@ -83,10 +82,9 @@ function SideMenu({selectedRegions, onCheckboxChange, sortOrder, handleDropdownC
                 size='small'
                 text='Uitloggen →'
                 id='sideMenuButtonSubmit'
-                clickfunction={()=> handleLogout()}
+                clickfunction={() => handleLogout()}
             />
-        </div>
-    )
+        </div>)
 }
 
 export default SideMenu;

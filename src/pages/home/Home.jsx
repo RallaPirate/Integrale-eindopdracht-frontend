@@ -17,7 +17,7 @@ function Home() {
     const searchQueryFromUrl = searchParams.get("q");
 
     const handleCheckboxChange = (e) => {
-        const { value, checked } = e.target;
+        const {value, checked} = e.target;
         if (checked) {
             setSelectedRegions(prev => [...prev, value]);
         } else {
@@ -26,56 +26,53 @@ function Home() {
     };
 
     const handleDropdownChange = (e) => {
-        const { value } = e.target;
+        const {value} = e.target;
         setSortOrder(value);
     }
 
     async function goFetch() {
         try {
-            const response = await axios.get('http://localhost:8080/api/posts',{
-                params: { region: selectedRegions,
-                sort: sortOrder,
-                query: searchQueryFromUrl || "" },
-                paramsSerializer: (params) => qs.stringify(params, { arrayFormat: 'repeat' })
+            const response = await axios.get('http://localhost:8080/api/posts', {
+                params: {
+                    region: selectedRegions, sort: sortOrder, query: searchQueryFromUrl || ""
+                }, paramsSerializer: (params) => qs.stringify(params, {arrayFormat: 'repeat'})
             });
-        setPosts(response.data);
-        console.log(axios.defaults.headers);
-        }
-        catch (error) {
+            setPosts(response.data);
+            console.log(axios.defaults.headers);
+        } catch (error) {
             console.log(error);
         }
     }
+
     // useEffect(() => {
     //     if (searchQueryFromUrl) {
     //         setSearchQuery(searchQueryFromUrl);
     //     }
     // }, [searchQueryFromUrl]);
-    useEffect(() => {goFetch()}, [selectedRegions, sortOrder, searchQueryFromUrl]);
+    useEffect(() => {
+        goFetch()
+    }, [selectedRegions, sortOrder, searchQueryFromUrl]);
 
 
-    return (
-        <>
+    return (<>
             <Header
-            searchQueryInput={searchQueryInput}
-            setSearchQueryInput={setSearchQueryInput}/>
+                searchQueryInput={searchQueryInput}
+                setSearchQueryInput={setSearchQueryInput}/>
             <div className="home">
-            <SideMenu
-            selectedRegions={selectedRegions}
-            sortOrder={sortOrder}
-            handleDropdownChange={handleDropdownChange}
-            onCheckboxChange={handleCheckboxChange}/>
+                <SideMenu
+                    selectedRegions={selectedRegions}
+                    sortOrder={sortOrder}
+                    handleDropdownChange={handleDropdownChange}
+                    onCheckboxChange={handleCheckboxChange}/>
                 <div className="homeContent">
-                    {posts.map(post => (
-                        <Post postcontent={post} />
-                    ))}
+                    {posts.map(post => (<Post postcontent={post}/>))}
 
                     {/*{filteredPosts.map(post => (*/}
                     {/*    <Post key={post.id} postcontent={post} />*/}
                     {/*))}*/}
                 </div>
             </div>
-        </>
-    )
+        </>)
 }
 
 export default Home;

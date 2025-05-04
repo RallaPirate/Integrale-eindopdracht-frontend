@@ -6,7 +6,7 @@ import ButtonHome from '../buttonHome/ButtonHome.jsx'
 import ButtonProfile from '../buttonProfile/ButtonProfile.jsx'
 import SearchBar from '../searchBar/SearchBar.jsx'
 import Notifications from '../notifications/Notifications.jsx'
-import { Bell, Plus, MagnifyingGlass, User } from '@phosphor-icons/react'
+import {Bell, Plus, MagnifyingGlass, User} from '@phosphor-icons/react'
 
 function Header({searchQueryInput, setSearchQueryInput}) {
     const navigate = useNavigate();
@@ -22,33 +22,31 @@ function Header({searchQueryInput, setSearchQueryInput}) {
         }
     }, [location.search]);
 
-    return (
-        <>
+    return (<>
             <header className="header">
-                <ButtonHome />
+                <ButtonHome/>
                 {searchbar && <SearchBar
                     searchQueryInput={searchQueryInput}
                     setSearchQueryInput={setSearchQueryInput}
-                    />}
-                {notifications && <Notifications />}
+                />}
+                {notifications && <Notifications/>}
                 <ButtonHeader
                     icon=<Plus size={32}/>
-                    clickfunction= {()=> navigate('/nieuwepost')}
+                clickfunction= {() => navigate('/nieuwepost')}
                 />
                 <ButtonHeader
-                    icon=<MagnifyingGlass size={32} />
-                clickfunction= {()=>toggleSearchbar(!searchbar)}
+                    icon=<MagnifyingGlass size={32}/>
+                clickfunction= {() => toggleSearchbar(!searchbar)}
                 />
                 <ButtonHeader
-                    icon=<Bell size={32} />
-                clickfunction= {()=>toggleNotifications(!notifications)}
+                    icon=<Bell size={32}/>
+                clickfunction= {() => toggleNotifications(!notifications)}
                 />
                 <ButtonProfile
                     icon=<User size={122} color="var(--color-secondary)"/>
-                    route={`/profiel/${profileId}`}/>
+                route={`/profiel/${profileId}`}/>
             </header>
-        </>
-    )
+        </>)
 }
 
 export default Header;

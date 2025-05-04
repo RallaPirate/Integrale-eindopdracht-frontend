@@ -1,7 +1,7 @@
 import './Login.css'
 import HeaderLogin from "../../components/headerLogin/HeaderLogin.jsx";
 import ButtonSubmit from "../../components/buttonSubmit/ButtonSubmit.jsx";
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 import {useLocation, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import axios from "axios";
@@ -23,22 +23,20 @@ function Login() {
             localStorage.setItem("userId", userId);
             localStorage.setItem("role", role);
             localStorage.setItem("profileId", profileId);
-                axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
             console.log("Succes! Opgeslagen token is:", token)
             console.log("Opgeslagen userId is:", userId);
             console.log("Opgeslagen role is:", role);
             console.log("Opgeslagen profileId is:", profileId);
             navigate('/home');
-        }
-        catch (error) {
+        } catch (error) {
             console.log("Login mislukt", error);
         }
     }
 
 
-    return (
-        <>
+    return (<>
             <HeaderLogin/>
             {registered && <p className="successMessage">Registratie gelukt! U kunt nu inloggen.</p>}
             <div className="loginpage">
@@ -46,40 +44,38 @@ function Login() {
                     className="loginform"
                     onSubmit={handleSubmit(handleFormSubmit)}>
                     <div className="formIntro">
-                    <p>Het SP Platform is de webapp waar je actief je stem kunt laten horen binnen de SP. <br/> Je kunt
-                        op deze website inloggen met je SP-account. Heb je daar hulp bij nodig? Stuur een mail naar
-                        webteam@sp.nl</p>
+                        <p>Het SP Platform is de webapp waar je actief je stem kunt laten horen binnen de SP. <br/> Je
+                            kunt
+                            op deze website inloggen met je SP-account. Heb je daar hulp bij nodig? Stuur een mail naar
+                            webteam@sp.nl</p>
                     </div>
                     <div className="formFields">
-                    <input
-                        className="loginField"
-                        type="email"
-                        placeholder="voer uw emailadres in"
-                        {...register("email", {
-                            required: true,
-                            message: "Emailadres is verplicht"
-                        })} />
-                    <input
-                        className="loginField"
-                        type="password"
-                        placeholder="voer uw wachtwoord in"
-                        {...register("password", {
-                            required: true,
-                            message: "Wachtwoord is verplicht"
-                        })}/>
-                    <ButtonSubmit
-                        text="inloggen"
-                        size="large"
-                        id="loginSubmit"
-                    />
-                    {loginError && <p>{loginError}</p>}
+                        <input
+                            className="loginField"
+                            type="email"
+                            placeholder="voer uw emailadres in"
+                            {...register("email", {
+                                required: true, message: "Emailadres is verplicht"
+                            })} />
+                        <input
+                            className="loginField"
+                            type="password"
+                            placeholder="voer uw wachtwoord in"
+                            {...register("password", {
+                                required: true, message: "Wachtwoord is verplicht"
+                            })}/>
+                        <ButtonSubmit
+                            text="inloggen"
+                            size="large"
+                            id="loginSubmit"
+                        />
+                        {loginError && <p>{loginError}</p>}
                     </div>
                     {/*Onderstaande div dients om flexbox zover te krijgen dat hij formInfo bovenaan en formFields in het midden weergeeft*/}
                     <div></div>
                 </form>
             </div>
-        </>
-    )
+        </>)
 }
 
 export default Login;

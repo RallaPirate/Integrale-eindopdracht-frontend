@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-.infoSignUp{
+.infoSignUp {
     margin: 10px;
     display: flex;
     flex-direction: row;
@@ -36,22 +36,22 @@
     margin-left: auto;
 }
 
- .errormessage {
-     color: #d32f2f;
-     font-size: 14px;
- }
+.errormessage {
+    color: #d32f2f;
+    font-size: 14px;
+}
 
- .serverError {
-     position: absolute;
-     width: 100%;
-     color: #d32f2f;
-     background-color: #ffebee;
-     padding: 12px 24px;
-     border: 2px solid #f44336;
-     border-radius: 12px;
-     margin: 16px 0;
-     font-size: 16px;
-     font-weight: bold;
-     text-align: center;
- }
+.serverError {
+    position: absolute;
+    width: 100%;
+    color: #d32f2f;
+    background-color: #ffebee;
+    padding: 12px 24px;
+    border: 2px solid #f44336;
+    border-radius: 12px;
+    margin: 16px 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
 

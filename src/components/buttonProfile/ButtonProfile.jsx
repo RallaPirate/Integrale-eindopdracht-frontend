@@ -2,12 +2,10 @@ import './ButtonProfile.css'
 import {Link} from "react-router-dom";
 
 function ButtonProfile({icon, route}) {
-    return (
-        <Link to={route}
-        className="buttonProfile">
+    return (<Link to={route}
+                  className="buttonProfile">
             {icon}
-        </Link>
-    )
+        </Link>)
 }
 
 export default ButtonProfile;
