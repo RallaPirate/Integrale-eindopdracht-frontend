@@ -1,5 +1,5 @@
 import './App.css'
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import {Routes, Route, useNavigate, useParams} from 'react-router-dom'
 import Login from './pages/login/Login.jsx'
 import Home from './pages/home/Home.jsx'
 import CaseFile from './pages/caseFile/CaseFile.jsx'
@@ -19,6 +19,7 @@ if(token){
 function App() {
     const navigate = useNavigate();
     const login = true;
+    const { profileId } = useParams();
 
   return (
     <>
@@ -26,7 +27,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/home" element={<ProtectedRoute> <Home /></ProtectedRoute>} />
             <Route path="/dossier/:caseFileNumber" element={<ProtectedRoute> <CaseFile /> </ProtectedRoute>} />
-            <Route path="/profiel/:user" element={<ProtectedRoute> ? <Profile /> </ProtectedRoute>} />
+            <Route path="/profiel/:profileId" element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
             <Route path="*" element={<ProtectedRoute> <NotFound /></ProtectedRoute>} />
             <Route path="/wordlid" element={<SignUp />} />\
             <Route path="/nieuwepost" element={<ProtectedRoute> <NewPost /> </ProtectedRoute> } />

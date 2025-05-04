@@ -13,6 +13,8 @@ function Header({searchQueryInput, setSearchQueryInput}) {
     const [searchbar, toggleSearchbar] = useState(false)
     const [notifications, toggleNotifications] = useState(false)
 
+    const profileId = localStorage.getItem('profileId')
+
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         if (params.get("q")) {
@@ -43,7 +45,7 @@ function Header({searchQueryInput, setSearchQueryInput}) {
                 />
                 <ButtonProfile
                     icon=<User size={122} color="var(--color-secondary)"/>
-                    route="/profiel/testuser"/>
+                    route={`/profiel/${profileId}`}/>
             </header>
         </>
     )
