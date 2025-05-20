@@ -11,7 +11,8 @@ function SideMenu({selectedRegions, onCheckboxChange, sortOrder, handleDropdownC
     const allRegions = ['NL', 'GR', 'FR', 'DR', 'OV', 'FL', 'GD', 'UT', 'NH', 'ZH', 'ZL', 'NB', 'LB'];
 
     function handleLogout() {
-        localStorage.removeItem("token");
+        localStorage.clear();
+        // localStorage.removeItem("token");
         delete axios.defaults.headers.common['Authorization'];
         navigate('/')
     }

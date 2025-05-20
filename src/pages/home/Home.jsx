@@ -15,6 +15,7 @@ function Home() {
     const [sortOrder, setSortOrder] = useState("newest");
     const [searchParams] = useSearchParams();
     const searchQueryFromUrl = searchParams.get("q");
+    const userId = localStorage.getItem("userId");
 
     const handleCheckboxChange = (e) => {
         const {value, checked} = e.target;
@@ -34,11 +35,12 @@ function Home() {
         try {
             const response = await axios.get('http://localhost:8080/api/posts', {
                 params: {
-                    region: selectedRegions, sort: sortOrder, query: searchQueryFromUrl || ""
+                    region: selectedRegions, sort: sortOrder, query: searchQueryFromUrl || "", userId: userId
                 }, paramsSerializer: (params) => qs.stringify(params, {arrayFormat: 'repeat'})
             });
             setPosts(response.data);
             console.log(axios.defaults.headers);
+            console.log("De opgeslagen userID is: " + userId)
         } catch (error) {
             console.log(error);
         }

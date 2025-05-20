@@ -2,6 +2,7 @@ import './Post.css'
 import axios from "axios";
 import {useState} from "react";
 import RegionNamesTranslator from "../../helper/RegionNamesTranslator.js";
+import { ArrowFatUp } from '@phosphor-icons/react'
 
 const userId = localStorage.getItem("userId");
 
@@ -68,13 +69,15 @@ function Post({postcontent}) {
             <p className="postreg">{RegionNamesTranslator[postcontent.region] || postcontent.region}</p>
             <h3 className="postTitle">{postcontent.title}</h3>
             <p>{postcontent.posttext}</p>
-            <div className="testUpvoteButton">
-                <button onClick={() => handleUpvote()}>Klikmij</button>
-                <button onClick={() => handleUpvotePost()}>UpvotePost</button>
-                <button onClick={() => handleUpvoteDelete()}>UpvoteDelete</button>
-            </div>
+        <div className="upvoteButtonAndCount">
+            <button className='upvoteButton' onClick={() => handleUpvote()}>
+                {!upvoted && <ArrowFatUp className='upvoteButtonNeutral' size={25}/>}
+                {upvoted && <ArrowFatUp className='upvoteButtonClicked' size={25} weight='fill'/>}</button>
+            {/*<button onClick={() => handleUpvotePost()}>UpvotePost</button>*/}
+            {/*<button onClick={() => handleUpvoteDelete()}>UpvoteDelete</button>*/}
             <p>{postcontent.upvoteCount} Upvotes</p>
-        </div>)
+        </div>
+    </div>)
 }
 
 export default Post;
