@@ -23,7 +23,7 @@ function Login() {
             localStorage.setItem("userId", userId);
             localStorage.setItem("role", role);
             localStorage.setItem("profileId", profileId);
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
             console.log("Succes! Opgeslagen token is:", token)
             console.log("Opgeslagen userId is:", userId);

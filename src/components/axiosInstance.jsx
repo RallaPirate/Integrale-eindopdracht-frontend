@@ -1,13 +1,16 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5173/api', // or whatever your base is
+    baseURL: 'http://localhost:8080/api',
 });
 
 axiosInstance.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token'); // or however you're storing it
+    const token = localStorage.getItem('token');
     if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    else {
+        delete config.headers['Authorization'];
     }
     return config;
 }, (error) => Promise.reject(error));

@@ -1,5 +1,6 @@
 import './Post.css'
-import axios from "axios";
+// import axios from "axios";
+import axios from "../axiosInstance.jsx"
 import {useState} from "react";
 import RegionNamesTranslator from "../../helper/RegionNamesTranslator.js";
 import { ArrowFatUp } from '@phosphor-icons/react'
