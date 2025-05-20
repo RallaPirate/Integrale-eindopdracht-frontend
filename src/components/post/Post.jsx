@@ -8,36 +8,36 @@ import { ArrowFatUp } from '@phosphor-icons/react'
 const userId = localStorage.getItem("userId");
 
 function Post({postcontent}) {
-    const [upvoted, setUpvoted] = useState(false);
+    const [upvoted, setUpvoted] = useState(postcontent.upvotedByUser);
     const [buttonDown, setButtonDown] = useState(false);
     const postid = postcontent.postid;
     const upvotedata = {
         postId: postid, userId: userId,
     }
 
-    async function handleUpvotePost() {
-        try {
-            const response = await axios.post(`http://localhost:8080/api/posts/${postid}/upvote`, upvotedata);
-            console.log(response.data);
-            console.log("success")
-            setButtonDown(true);
-            console.log("buttonDown: ", buttonDown)
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // async function handleUpvotePost() {
+    //     try {
+    //         const response = await axios.post(`http://localhost:8080/api/posts/${postid}/upvote`, upvotedata);
+    //         console.log(response.data);
+    //         console.log("success")
+    //         setButtonDown(true);
+    //         console.log("buttonDown: ", buttonDown)
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
-    async function handleUpvoteDelete() {
-        try {
-            const response = await axios.delete(`http://localhost:8080/api/posts/${postid}/delete`);
-            console.log(response.data);
-            console.log("success")
-            setButtonDown(false);
-            console.log("buttonDown: ", buttonDown);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // async function handleUpvoteDelete() {
+    //     try {
+    //         const response = await axios.delete(`http://localhost:8080/api/posts/${postid}/delete`);
+    //         console.log(response.data);
+    //         console.log("success")
+    //         setButtonDown(false);
+    //         console.log("buttonDown: ", buttonDown);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     async function handleUpvote() {
         console.log("Dit wordt er verzonden:" + upvotedata);
@@ -69,7 +69,7 @@ function Post({postcontent}) {
     return (<div className="post">
             <p className="postreg">{RegionNamesTranslator[postcontent.region] || postcontent.region}</p>
             <h3 className="postTitle">{postcontent.title}</h3>
-            <p>{postcontent.posttext}</p>
+            <p>{postcontent.text}</p>
         <div className="upvoteButtonAndCount">
             <button className='upvoteButton' onClick={() => handleUpvote()}>
                 {!upvoted && <ArrowFatUp className='upvoteButtonNeutral' size={25}/>}
@@ -77,8 +77,9 @@ function Post({postcontent}) {
             {/*<button onClick={() => handleUpvotePost()}>UpvotePost</button>*/}
             {/*<button onClick={() => handleUpvoteDelete()}>UpvoteDelete</button>*/}
             <p>{postcontent.upvoteCount} Upvotes</p>
-        </div>
-    </div>)
-}
+            {/*<p> {postcontent.upvotedByUser ? "Upvoted by me!" : "Not upvoted"} </p>*/}
+                </div>
+                </div>)
+            }
 
-export default Post;
+                export default Post;
