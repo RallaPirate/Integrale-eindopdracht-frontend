@@ -1,11 +1,11 @@
 import './SearchBar.css'
-import { MagnifyingGlass } from "@phosphor-icons/react";
+import {MagnifyingGlass} from "@phosphor-icons/react";
 import {useNavigate} from "react-router-dom";
 
 function SearchBar({searchQueryInput, setSearchQueryInput}) {
 
     const navigate = useNavigate();
-    const handleSearch= () => {
+    const handleSearch = () => {
         navigate(`/home?q=${searchQueryInput}`);
     };
     const handleKeyDown = (e) => {
@@ -13,8 +13,7 @@ function SearchBar({searchQueryInput, setSearchQueryInput}) {
             handleSearch();
         }
     };
-    return (
-        <div className="searchBar">
+    return (<div className="searchBar">
             <input
                 className="searchField"
                 type="text"
@@ -24,12 +23,12 @@ function SearchBar({searchQueryInput, setSearchQueryInput}) {
                 onKeyDown={handleKeyDown}/>
             <button
                 className="searchButton"
-                onClick={()=>{
-                handleSearch()}}>
+                onClick={() => {
+                    handleSearch()
+                }}>
                 <MagnifyingGlass size={38}/>
             </button>
-        </div>
-    )
+        </div>)
 }
 
 export default SearchBar;

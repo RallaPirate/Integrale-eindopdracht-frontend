@@ -1,11 +1,11 @@
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 import './NewPost.css'
 import Header from '../../components/header/Header.jsx'
 import ButtonSubmit from "../../components/buttonSubmit/ButtonSubmit.jsx";
 import {Question} from "@phosphor-icons/react";
 import ButtonHeader from "../../components/buttonHeader/ButtonHeader.jsx";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 
 
@@ -17,21 +17,21 @@ function NewPost() {
     async function handleFormSubmit(data) {
         const userId = localStorage.getItem("userId");
         const postdata = {
-            ...data,
-            userId: userId,
+            ...data, userId: userId,
         };
-        try {const response = await axios.post('http://localhost:8080/api/posts', postdata)
-        console.log(data)
-        navigate('/home')}
-        catch(error){
+        try {
+            const response = await axios.post('http://localhost:8080/api/posts', postdata)
+            console.log(data)
+            navigate('/home')
+        } catch (error) {
             console.log(error)
         }
     }
-    return (
-        <>
+
+    return (<>
             <Header
                 searchQueryInput={searchQueryInput}
-                                setSearchQueryInput={setSearchQueryInput}/>
+                setSearchQueryInput={setSearchQueryInput}/>
 
             <div className="flexboxcontainer">
                 <form
@@ -46,20 +46,18 @@ function NewPost() {
                             placeholder="Voer een titel in"
                             {...register("title", {
                                 required: {
-                                    value: true,
-                                    message: "Dit veld is verplicht",
+                                    value: true, message: "Dit veld is verplicht",
                                 },
                             })}/>
                         {errors.title && <p className='errormessage'>{errors.title.message}</p>}
                     </div>
                     <div className="regionDropdown">
-                    <label htmlFor="region" className="regionLabel">Kies een regio:</label>
+                        <label htmlFor="region" className="regionLabel">Kies een regio:</label>
                         <select
                             id="regio"
-                            {... register("region", {
+                            {...register("region", {
                                 required: {
-                                    value: true,
-                                    message: "Selecteer een regio alstublieft",
+                                    value: true, message: "Selecteer een regio alstublieft",
                                 }
                             })}>
                             <option value="">Selecteer een regio</option>
@@ -101,8 +99,7 @@ function NewPost() {
                             placeholder="Voer hier uw tekst in"
                             {...register("posttext", {
                                 required: {
-                                    value: true,
-                                    message: "Dit veld is verplicht",
+                                    value: true, message: "Dit veld is verplicht",
                                 },
                             })}/>
                         {errors.posttext && <p className="errormessage">{errors.posttext.message}</p>}
@@ -116,8 +113,7 @@ function NewPost() {
                     />
                 </form>
             </div>
-        </>
-    )
+        </>)
 }
 
 export default NewPost;

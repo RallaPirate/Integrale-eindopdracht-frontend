@@ -5,13 +5,11 @@ import ButtonHeader from '../buttonHeader/ButtonHeader.jsx'
 import ButtonHome from '../buttonHome/ButtonHome.jsx'
 import ButtonProfile from '../buttonProfile/ButtonProfile.jsx'
 import SearchBar from '../searchBar/SearchBar.jsx'
-import Notifications from '../notifications/Notifications.jsx'
-import { Bell, Plus, MagnifyingGlass, User } from '@phosphor-icons/react'
+import {Plus, MagnifyingGlass, User} from '@phosphor-icons/react'
 
 function Header({searchQueryInput, setSearchQueryInput}) {
     const navigate = useNavigate();
     const [searchbar, toggleSearchbar] = useState(false)
-    const [notifications, toggleNotifications] = useState(false)
 
     const profileId = localStorage.getItem('profileId')
 
@@ -22,33 +20,31 @@ function Header({searchQueryInput, setSearchQueryInput}) {
         }
     }, [location.search]);
 
-    return (
-        <>
+    return (<>
             <header className="header">
-                <ButtonHome />
+                <ButtonHome/>
                 {searchbar && <SearchBar
                     searchQueryInput={searchQueryInput}
                     setSearchQueryInput={setSearchQueryInput}
-                    />}
-                {notifications && <Notifications />}
+                />}
                 <ButtonHeader
                     icon=<Plus size={32}/>
-                    clickfunction= {()=> navigate('/nieuwepost')}
+                clickfunction= {() => navigate('/nieuwepost')}
                 />
                 <ButtonHeader
-                    icon=<MagnifyingGlass size={32} />
-                clickfunction= {()=>toggleSearchbar(!searchbar)}
+                    icon=<MagnifyingGlass size={32}/>
+                clickfunction= {() => toggleSearchbar(!searchbar)}
                 />
-                <ButtonHeader
-                    icon=<Bell size={32} />
-                clickfunction= {()=>toggleNotifications(!notifications)}
-                />
+                {/*Notificaties gaan niet meer lukken. Dit zou de button zijn om ze aan of uit te zetten:*/}
+                {/*<ButtonHeader*/}
+                {/*    icon=<Bell size={32}/>*/}
+                {/*clickfunction= {() => toggleNotifications(!notifications)}*/}
+                {/*/>*/}
                 <ButtonProfile
                     icon=<User size={122} color="var(--color-secondary)"/>
-                    route={`/profiel/${profileId}`}/>
+                route={`/profiel/${profileId}`}/>
             </header>
-        </>
-    )
+        </>)
 }
 
 export default Header;

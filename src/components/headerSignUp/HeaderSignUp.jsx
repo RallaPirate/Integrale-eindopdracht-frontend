@@ -4,14 +4,12 @@ import ButtonProfile from '../buttonProfile/ButtonProfile.jsx';
 import {User} from '@phosphor-icons/react'
 
 function HeaderSignUp() {
-    return (
-        <header className="headerSignUp">
-            <ButtonHome />
+    return (<header className="headerSignUp">
+            <ButtonHome/>
             <ButtonProfile
-                icon=<User size={122} color="var(--color-secondary)" />
-                           route="/" />
-        </header>
-    )
+                icon=<User size={122} color="var(--color-secondary)"/>
+            route="/" />
+        </header>)
 }
 
 export default HeaderSignUp

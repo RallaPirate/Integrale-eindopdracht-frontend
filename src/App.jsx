@@ -9,6 +9,7 @@ import SignUp from './pages/signUp/SignUp.jsx'
 import NewPost from './pages/newPost/NewPost.jsx'
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import axios from "axios";
+import {useEffect} from "react";
 
 const token = localStorage.getItem('token');
 if(token){
@@ -20,6 +21,17 @@ function App() {
     const navigate = useNavigate();
     const login = true;
     const { profileId } = useParams();
+    // const token = localStorage.getItem('token');
+    //
+    // useEffect(() => {
+    //     const token = localStorage.getItem('token');
+    //     if (token) {
+    //         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    //         console.log("Token set in axios headers from localStorage:", token);
+    //     } else {
+    //         delete axios.defaults.headers.common['Authorization'];
+    //     }
+    // }, []);
 
   return (
     <>

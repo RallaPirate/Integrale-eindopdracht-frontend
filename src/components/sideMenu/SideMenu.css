@@ -11,7 +11,7 @@
     background-color: var(--color-background-secondary);
 }
 
-input[type="Checkbox"]{
+input[type="Checkbox"] {
     display: block;
 }
 
