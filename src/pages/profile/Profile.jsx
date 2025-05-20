@@ -8,6 +8,7 @@ import MyPosts from "../../components/myPosts/MyPosts.jsx";
 import ProfileUploadForm from "../../components/ProfileUploadForm/ProfileUploadForm.jsx";
 import ProfileUploadGallery from "../../components/ProfileUploadGallery/ProfileUploadGallery.jsx";
 import Post from "../../components/post/Post.jsx";
+import SideMenuProfile from "../../components/SideMenuProfile/SideMenuProfile.jsx";
 
 function Profile() {
     const [searchQueryInput, setSearchQueryInput] = useState("");
@@ -41,6 +42,7 @@ function Profile() {
                 searchQueryInput={searchQueryInput}
                 setSearchQueryInput={setSearchQueryInput}/>
             <div className="profile">
+                <SideMenuProfile />
                 <div className="profileContent">
                     <h2>Dit is je profielpagina</h2>
                     <h3>jij bent gebruiker</h3>
