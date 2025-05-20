@@ -11,10 +11,10 @@ import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import axios from "axios";
 import {useEffect} from "react";
 
-const token = localStorage.getItem('token');
-if(token){
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-}
+// const token = localStorage.getItem('token');
+// if(token){
+//     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+// }
 
 
 function App() {

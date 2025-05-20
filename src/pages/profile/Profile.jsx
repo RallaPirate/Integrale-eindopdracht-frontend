@@ -7,6 +7,7 @@ import qs from "qs";
 import MyPosts from "../../components/myPosts/MyPosts.jsx";
 import ProfileUploadForm from "../../components/ProfileUploadForm/ProfileUploadForm.jsx";
 import ProfileUploadGallery from "../../components/ProfileUploadGallery/ProfileUploadGallery.jsx";
+import Post from "../../components/post/Post.jsx";
 
 function Profile() {
     const [searchQueryInput, setSearchQueryInput] = useState("");
@@ -43,7 +44,8 @@ function Profile() {
                 <div className="profileContent">
                     <h2>Dit is je profielpagina</h2>
                     <h3>jij bent gebruiker</h3>
-                    {myPosts.map(myPosts => (<MyPosts mypostcontent={myPosts}/>))}
+                    {/*{myPosts.map(myPosts => (<MyPosts mypostcontent={myPosts}/>))}*/}
+                    {myPosts.map(myPosts => (<Post postcontent={myPosts}/>))}
                     <ProfileUploadGallery
                         profileId={profileId}/>
                 </div>
