@@ -7,10 +7,11 @@ console.log ("Ingeladen: ", uploadcontent);
         <div className="uploadContent">
             <img
                 src={`http://localhost:8080/api/profile/uploads/files/${uploadcontent.filename}`}
+                alt={uploadcontent.alt}
             />
             <div className="uploadContentText">
-            <p>Filename: {uploadcontent.filename}</p>
-            <p>Id: {uploadcontent.profileUploadId}</p>
+                <h3 className="uploadTitle">{uploadcontent.title}</h3>
+                <p>{uploadcontent.description}</p>
             </div>
         </div>)
 }

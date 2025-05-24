@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import ButtonTab from "../buttonTab/ButtonTab.jsx";
 import {useState} from "react";
 import ProfileUploadGallery from "../profileUploadGallery/ProfileUploadGallery.jsx";
+import UploadForm from "../uploadForm/UploadForm.jsx";
 
 function SideMenuProfile({showPublicPosts, toggleShowPublicPosts, profileId}){
 
@@ -28,12 +29,13 @@ function SideMenuProfile({showPublicPosts, toggleShowPublicPosts, profileId}){
             </div>
             {showPublicPosts && <p>Dit is de posts weergave</p>}
             {!showPublicPosts && <p>Dit is de profiel weergave</p>}
-            {!showPublicPosts && <div>
-                {/*<ProfileUploadGallery*/}
-                {/*profileId={profileId}*/}
-                {/*/>*/}
-                <p>Hier komt de upload logica. Uitgecomment voor debugging en herschrijven</p>
-            </div>}
+            {!showPublicPosts &&
+                <UploadForm
+                    axiosDestination={`profile/${profileId}/upload`}
+                    acceptedFileType="image/*"
+                    profileId={profileId} />
+
+            }
 
             <ButtonSubmit
                 size='small'
