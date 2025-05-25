@@ -40,6 +40,7 @@ function Profile() {
 
     useEffect(() => {
         goFetch();
+        getUploads();
     }, []);
 
     async function getUploads(){
@@ -65,19 +66,11 @@ function Profile() {
                 profileId={profileId}
                 />
                 <div className="profileContent">
-                    <h2>Dit is je profielpagina</h2>
-                    <h3>jij bent gebruiker</h3>
-                    <button onClick={() => console.log(profileUploads)}>Data opgeslagen?</button>
-                    {/*<button onClick={() => getUploads()}>get uploads</button>*/}
-                    {/*{myPosts.map(myPosts => (<MyPosts mypostcontent={myPosts}/>))}*/}
                     {showPublicPosts && <div>{myPosts.map(post => (<Post postcontent={post}/>))}</div>}
                     {!showPublicPosts &&
                         <div>
-                            <button onClick={() => getUploads()}>get uploads</button>
                             {profileUploads.map(upload => (<UploadContent uploadcontent={upload}/>))}
                     </div>}
-                    {/*{!showPublicPosts && <ProfileUploadGallery*/}
-                    {/*    profileId={profileId}/>}*/}
                 </div>
             </div>
         </>)

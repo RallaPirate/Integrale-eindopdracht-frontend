@@ -21,14 +21,15 @@ function SideMenuProfile({showPublicPosts, toggleShowPublicPosts, profileId}){
         <div className="sideMenuProfile">
             <div className="sideMenuTab">
                 <ButtonTab
-                text="Mijn Posts"
-                clickfunction={()=> toggleShowPublicPosts(true)}/>
-                <ButtonTab
                     text="Mijn profiel"
                     clickfunction={() => toggleShowPublicPosts(false)}/>
+                <ButtonTab
+                    text="Mijn Posts"
+                    clickfunction={() => toggleShowPublicPosts(true)}/>
+                <br/>
+                <br/>
+                <br/>
             </div>
-            {showPublicPosts && <p>Dit is de posts weergave</p>}
-            {!showPublicPosts && <p>Dit is de profiel weergave</p>}
             {!showPublicPosts &&
                 <UploadForm
                     axiosDestination={`profile/${profileId}/upload`}
