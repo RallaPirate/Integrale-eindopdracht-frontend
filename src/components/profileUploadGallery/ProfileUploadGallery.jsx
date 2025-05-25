@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import ProfileUploadForm from "../ProfileUploadForm/ProfileUploadForm.jsx";
+import ProfileUploadForm from "../profileUploadForm/ProfileUploadForm.jsx";
 import axios from "axios";
 
 function ProfileUploadGallery({profileId}) {

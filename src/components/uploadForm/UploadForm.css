@@ -1,0 +1,17 @@
+.fileUploadButton {
+    cursor: pointer;
+    border: solid 1px var(--color-secondary);
+    border-radius: 5px;
+    color: var(--color-copy);
+    font-family: var(--font-main);
+    padding: 2px;
+}
+
+.noFileSelected {
+    font-style: italic;
+    font-size: 11px;
+}
+
+.uploadTextInput {
+    margin: 5px;
+}

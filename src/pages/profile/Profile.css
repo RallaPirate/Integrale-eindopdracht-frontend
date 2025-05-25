@@ -4,5 +4,9 @@
 }
 
 .profileContent {
-    margin: 153px 0 0 275px;
+    margin: 128px 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100vw - 250px);
 }
